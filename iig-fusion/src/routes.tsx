@@ -1,4 +1,4 @@
-import type { RouteObject } from "react-router";
+import { Link, type RouteObject } from "react-router";
 import Home from "./components/Home";
 import ALevel from "./components/ALevel";
 
@@ -17,24 +17,45 @@ import RoutingTwoLans from "./components/Networks/RoutingTwoLans";
 import SettingUpDHCP from "./components/Networks/SettingUpDHCP";
 import SettingUpEmail from "./components/Networks/SettingUpEmail";
 import SettingUpWebServer from "./components/Networks/SettingUpWebServer";
+import NetworkStory from "./components/Networks/NetworkStory";
 
 // Industry
 import Industry from "./components/Industry/Industry";
 import IndustryProfiles from "./components/Industry/IndustryProfiles";
+import WorkExperience from "./components/Industry/WorkExperience";
 import SDLC from "./components/Industry/SDLC";
 
 // Root
 import App from "./App";
-import WorkExperience from "./components/Industry/WorkExperience";
 
 export type NavHandle = {
   navSection: string;
 };
 
+function ErrorPage() {
+  return (
+    <div className="page">
+      <div className="layout">
+        <div className="content">
+          <main>
+            <h1>Something went wrong</h1>
+            <p>
+              Sorry about that — Joe probably just hasn&apos;t implemented this
+              page yet.
+            </p>
+            <Link to="/">Go back to the homepage</Link>
+          </main>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export const ROUTES: RouteObject[] = [
   {
     path: "/",
     element: <App />,
+    errorElement: <ErrorPage />,
     children: [
       {
         index: true,
@@ -75,6 +96,10 @@ export const ROUTES: RouteObject[] = [
           {
             index: true,
             element: <Networks />,
+          },
+          {
+            path: "story",
+            element: <NetworkStory />,
           },
           {
             path: "simple-lan",

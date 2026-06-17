@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 function ALevel() {
   return (
     <main>
@@ -33,15 +35,15 @@ function ALevel() {
             <li>1.2.1 Systems Software</li>
             <li>1.2.2 Applications Generation</li>
             <li>
-              <a href="industry-profiles\software-dev-lifecycle.html">
+              <Link to="/industry/sdlc">
                 <b>1.2.3 Software Development</b>
-              </a>
+              </Link>
             </li>
             <li>
               <b>
-                <a href="programming\index.html">
+                <Link to="/programming">
                   1.2.4 Types of Programming Language
-                </a>
+                </Link>
               </b>
             </li>
           </ul>
@@ -52,12 +54,12 @@ function ALevel() {
             <li>1.3.1 Compression, Encryption and Hashing</li>
             <li>
               <b>
-                <a href="databases\index.html">1.3.2 Databases</a>
+                <Link to="/databases">1.3.2 Databases</Link>
               </b>
             </li>
             <li>
               <b>
-                <a href="networks\index.html">1.3.3 Networks</a>
+                <Link to="/networks">1.3.3 Networks</Link>
               </b>
             </li>
             <li>1.3.4 Web Technologies</li>
