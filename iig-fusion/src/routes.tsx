@@ -1,6 +1,10 @@
-import { Link, type RouteObject } from "react-router";
+import { Link, Outlet, type RouteObject } from "react-router";
 import Home from "./components/Home";
-import ALevel from "./components/ALevel";
+
+// A Level
+import ALevel from "./components/ALevel/ALevel";
+import OCR_Spec from "./components/ALevel/OCR_Spec";
+import ALevelProject from "./components/ALevel/ALevelProjects";
 
 // Database components
 import Databases from "./components/Databases/Databases";
@@ -54,7 +58,11 @@ function ErrorPage() {
 export const ROUTES: RouteObject[] = [
   {
     path: "/",
-    element: <App />,
+    element: (
+      <App>
+        <Outlet />
+      </App>
+    ),
     errorElement: <ErrorPage />,
     children: [
       {
@@ -64,11 +72,24 @@ export const ROUTES: RouteObject[] = [
       },
       {
         path: "a-level",
-        element: <ALevel />,
         handle: { navSection: "A-Level" },
+        children: [
+          {
+            index: true,
+            element: <ALevel />,
+          },
+          {
+            path: "ocr-spec",
+            element: <OCR_Spec />,
+          },
+          {
+            path: "project",
+            element: <ALevelProject />,
+          },
+        ],
       },
       {
-        path: "/industry",
+        path: "industry",
         handle: { navSection: "Industry" },
         children: [
           {
@@ -90,7 +111,7 @@ export const ROUTES: RouteObject[] = [
         ],
       },
       {
-        path: "/networks",
+        path: "networks",
         handle: { navSection: "Networks" },
         children: [
           {
@@ -124,7 +145,7 @@ export const ROUTES: RouteObject[] = [
         ],
       },
       {
-        path: "/databases",
+        path: "databases",
         handle: { navSection: "Databases" },
         children: [
           {

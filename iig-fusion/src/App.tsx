@@ -1,9 +1,8 @@
 import React from "react";
-import { Outlet } from "react-router";
 import NavBar from "./components/NavBar";
 import PageFooter from "./components/PageFooter";
 
-function App() {
+function App({ children }: { children: React.ReactNode }) {
   const navRef = React.useRef<HTMLDivElement>(null);
   const onClickNavToggle = () => {
     const sidebar = navRef.current;
@@ -18,9 +17,7 @@ function App() {
       </button>
       <div className="layout">
         <NavBar navRef={navRef} onClose={onClickNavToggle} />
-        <div className="content">
-          <Outlet />
-        </div>
+        <div className="content">{children}</div>
       </div>
       <PageFooter />
     </div>

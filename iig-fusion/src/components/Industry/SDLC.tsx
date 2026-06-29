@@ -57,106 +57,110 @@ function SDLC() {
       <section className="sec">
         <h2>Typical Roles in the SDLC</h2>
         <table>
-          <tr>
-            <th>OCR Syllabus Heading</th>
-            <th>Most Relevant SDLC Stages</th>
-          </tr>
-          <tr>
-            <td>Components of a Computer System</td>
-            <td>
-              <ul>
-                <li>Analysis</li>
-                <li>Design</li>
-              </ul>
-            </td>
-          </tr>
-          <tr>
-            <td>Software & Software Development</td>
-            <td>
-              <ul>
-                <li>Design</li>
-                <li>Implementation</li>
-                <li>Testing</li>
-              </ul>
-            </td>
-          </tr>
-          <tr>
-            <td>Exchanging Data</td>
-            <td>
-              <ul>
-                <li>Design</li>
-                <li>Implementation</li>
-                <li>Maintenance</li>
-              </ul>
-            </td>
-          </tr>
-          <tr>
-            <td>Data Types, Data Structures & Algorithms</td>
-            <td>
-              <ul>
-                <li>Design</li>
-                <li>Implementation</li>
-                <li>Testing</li>
-              </ul>
-            </td>
-          </tr>
-          <tr>
-            <td>Legal, Moral, Ethical & Cultural Issues</td>
-            <td>
-              <ul>
-                <li>Planning</li>
-                <li>Analysis</li>
-                <li>Design</li>
-                <li>Testing</li>
-              </ul>
-            </td>
-          </tr>
-          <tr>
-            <td>Computational Logic</td>
-            <td>
-              <ul>
-                <li>Analysis</li>
-                <li>Design</li>
-                <li>Implementation</li>
-              </ul>
-            </td>
-          </tr>
-          <tr>
-            <td>Programming Techniques</td>
-            <td>
-              <ul>
-                <li>Implementation</li>
-                <li>Testing</li>
-                <li>Maintenance</li>
-              </ul>
-            </td>
-          </tr>
-          <tr>
-            <td>Software Development Lifecycle</td>
-            <td>
-              <ul>
-                <li>All stages of the SDLC are relevant to this topic</li>
-              </ul>
-            </td>
-          </tr>
-          <tr>
-            <td>Algorithms</td>
-            <td>
-              <ul>
-                <li>Design</li>
-                <li>Implementation</li>
-                <li>Testing</li>
-              </ul>
-            </td>
-          </tr>
-          <tr>
-            <td>Programming Project</td>
-            <td>
-              <ul>
-                <li>All stages of the SDLC are relevant to this topic</li>
-              </ul>
-            </td>
-          </tr>
+          <thead>
+            <tr>
+              <th>OCR Syllabus Heading</th>
+              <th>Most Relevant SDLC Stages</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Components of a Computer System</td>
+              <td>
+                <ul>
+                  <li>Analysis</li>
+                  <li>Design</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>Software & Software Development</td>
+              <td>
+                <ul>
+                  <li>Design</li>
+                  <li>Implementation</li>
+                  <li>Testing</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>Exchanging Data</td>
+              <td>
+                <ul>
+                  <li>Design</li>
+                  <li>Implementation</li>
+                  <li>Maintenance</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>Data Types, Data Structures & Algorithms</td>
+              <td>
+                <ul>
+                  <li>Design</li>
+                  <li>Implementation</li>
+                  <li>Testing</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>Legal, Moral, Ethical & Cultural Issues</td>
+              <td>
+                <ul>
+                  <li>Planning</li>
+                  <li>Analysis</li>
+                  <li>Design</li>
+                  <li>Testing</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>Computational Logic</td>
+              <td>
+                <ul>
+                  <li>Analysis</li>
+                  <li>Design</li>
+                  <li>Implementation</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>Programming Techniques</td>
+              <td>
+                <ul>
+                  <li>Implementation</li>
+                  <li>Testing</li>
+                  <li>Maintenance</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>Software Development Lifecycle</td>
+              <td>
+                <ul>
+                  <li>All stages of the SDLC are relevant to this topic</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>Algorithms</td>
+              <td>
+                <ul>
+                  <li>Design</li>
+                  <li>Implementation</li>
+                  <li>Testing</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>Programming Project</td>
+              <td>
+                <ul>
+                  <li>All stages of the SDLC are relevant to this topic</li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
         </table>
       </section>
       <section className="sec">

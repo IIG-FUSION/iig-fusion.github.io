@@ -9,26 +9,26 @@ function Databases() {
         they are, when you met them and when you're at the same events. So you
         decide to do a journal or diary and want it digital. Now you have a
         folder contain files, like:
-        <ul>
-          <li>
-            PARTY 25-12-2024, containing details of the party and who attended
-            (including any new friends)
-          </li>
-          <li>
-            John SMITH from school, containing details about John Smith (from
-            School, not that other John Smith)
-          </li>
-          <li>
-            Friends List Update 25-12-2024, containing all the new frineds you
-            made at the party.
-          </li>
-          <li>
-            Friends List Update 26-12-2024, containing all those you once called
-            friends but are so unfriending.
-          </li>
-          <li>Current friends list</li>
-        </ul>
       </p>
+      <ul>
+        <li>
+          PARTY 25-12-2024, containing details of the party and who attended
+          (including any new friends)
+        </li>
+        <li>
+          John SMITH from school, containing details about John Smith (from
+          School, not that other John Smith)
+        </li>
+        <li>
+          Friends List Update 25-12-2024, containing all the new frineds you
+          made at the party.
+        </li>
+        <li>
+          Friends List Update 26-12-2024, containing all those you once called
+          friends but are so unfriending.
+        </li>
+        <li>Current friends list</li>
+      </ul>
       <p>
         As you can imagine, as the year go by, the number of files just keep on
         increasing and increasing. You start to drown in the digital weight of
@@ -46,15 +46,15 @@ function Databases() {
       <p>
         When starting to create a database we have to decide what information we
         want to store. For FaceBase we will store:
-        <ul>
-          <li>Different events and their attendees</li>
-          <li>Details about different friends (or former friends)</li>
-          <li>
-            List of current friends and history of when people are added or
-            unfriended
-          </li>
-        </ul>
       </p>
+      <ul>
+        <li>Different events and their attendees</li>
+        <li>Details about different friends (or former friends)</li>
+        <li>
+          List of current friends and history of when people are added or
+          unfriended
+        </li>
+      </ul>
       <WarningBox level="warning">
         Please do not create your own FaceBase. Not because I've trademarked
         that awesome name or the idea itself. But rather, if you remember, we
@@ -121,30 +121,28 @@ function Databases() {
         queries. We can even setup backups so that if our data was lost (or
         someone corrupted it) then we could recover it. Therefore databases are
         awesome when:
-        <ol>
-          <li>
-            We have lots of data we want to keep updated (and we don't want a
-            million files)
-          </li>
-          <li>We want to reduce keeping duplicate information</li>
-          <li>
-            We need to be able to get information (aka run queries) from this
-            data
-          </li>
-          <li>
-            We want to ensure consistency of data as database ensure it confirms
-            to your schema
-          </li>
-          <li>
-            Much better security as we can limit access using different user
-            roles
-          </li>
-          <li>
-            Also better security of data as we can regularly backup (and if
-            needed restore)
-          </li>
-        </ol>
       </p>
+      <ol>
+        <li>
+          We have lots of data we want to keep updated (and we don't want a
+          million files)
+        </li>
+        <li>We want to reduce keeping duplicate information</li>
+        <li>
+          We need to be able to get information (aka run queries) from this data
+        </li>
+        <li>
+          We want to ensure consistency of data as database ensure it confirms
+          to your schema
+        </li>
+        <li>
+          Much better security as we can limit access using different user roles
+        </li>
+        <li>
+          Also better security of data as we can regularly backup (and if needed
+          restore)
+        </li>
+      </ol>
       <WarningBox level="danger">
         Excel and other spreadsheets may <i>appear</i> similar to databases. But
         they are NOT databases. Using a spreadsheet as a database may result in
