@@ -4,7 +4,7 @@ import babel from "@rolldown/plugin-babel";
 
 // https://vite.dev/config/
 export default defineConfig(({ command }) => ({
-  base: command === "serve" ? "/" : "/teacher-encounters-html/",
+  base: command === "serve" ? "/" : "/",
 
   plugins: [react(), babel({ presets: [reactCompilerPreset()] })],
 }));
