@@ -15,14 +15,16 @@ type SectionNavProps = Pick<Props, "onClose"> & {
 
 const EMPTY_SECTIONS: string[] = [];
 
+function getSubnavClassName(section: string, activeSections: string[]) {
+  return `subnav ${!activeSections.includes(section) ? "collapsed" : ""}`;
+}
+
 export function NetworkNavLinks({
   onClose = NO_OP,
   activeSections = EMPTY_SECTIONS,
 }: SectionNavProps) {
   return (
-    <ul
-      className={`subnav ${!activeSections.includes("Networks") && "collapsed"}`}
-    >
+    <ul className={getSubnavClassName("Networks", activeSections)}>
       <li>
         <Link to="/networks/story" onClick={onClose}>
           A Network Story
@@ -59,12 +61,10 @@ export function NetworkNavLinks({
 
 function IndustryNavLinks({
   onClose = NO_OP,
-  activeSections,
+  activeSections = EMPTY_SECTIONS,
 }: SectionNavProps) {
   return (
-    <ul
-      className={`subnav ${!activeSections.includes("Industry") && "collapsed"}`}
-    >
+    <ul className={getSubnavClassName("Industry", activeSections)}>
       <li>
         <Link to="/industry/sdlc" onClick={onClose}>
           Software Development Life Cycle
@@ -86,12 +86,10 @@ function IndustryNavLinks({
 
 function DatabaseNavLinks({
   onClose = NO_OP,
-  activeSections,
+  activeSections = EMPTY_SECTIONS,
 }: SectionNavProps) {
   return (
-    <ul
-      className={`subnav ${!activeSections.includes("Databases") && "collapsed"}`}
-    >
+    <ul className={getSubnavClassName("Databases", activeSections)}>
       <li>
         <Link to="/databases/entity-relationship-diagrams" onClick={onClose}>
           Entity Relationship Diagrams
@@ -121,11 +119,12 @@ function DatabaseNavLinks({
   );
 }
 
-function ALeveNavLinks({ onClose = NO_OP, activeSections }: SectionNavProps) {
+function ALeveNavLinks({
+  onClose = NO_OP,
+  activeSections = EMPTY_SECTIONS,
+}: SectionNavProps) {
   return (
-    <ul
-      className={`subnav ${!activeSections.includes("A-Level") && "collapsed"}`}
-    >
+    <ul className={getSubnavClassName("A-Level", activeSections)}>
       <li>
         <Link to="/a-level/ocr-spec" onClick={onClose}>
           OCR Specification
@@ -142,9 +141,11 @@ function ALeveNavLinks({ onClose = NO_OP, activeSections }: SectionNavProps) {
 
 function NavBar({ navRef, onClose = NO_OP }: Props) {
   const matches = (useMatches() as Array<{ handle?: NavHandle }>) || [];
-  const activeSections = matches
-    .map((m) => m.handle?.navSection)
-    .filter(Boolean);
+  const activeSections: string[] =
+    matches
+      .map((m) => m.handle?.navSection)
+      .filter(Boolean)
+      .map((d) => d as string) || EMPTY_SECTIONS;
 
   return (
     <nav className="sidebar" ref={navRef}>
