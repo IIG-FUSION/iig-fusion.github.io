@@ -115,6 +115,11 @@ function DatabaseNavLinks({
           Terminology
         </Link>
       </li>
+      <li>
+        <Link to="/databases/playground" onClick={onClose}>
+          SQL Playground
+        </Link>
+      </li>
     </ul>
   );
 }

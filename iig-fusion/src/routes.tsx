@@ -13,6 +13,8 @@ import SQL from "./components/Databases/SQL";
 import SQLite from "./components/Databases/SQLite";
 import Terminology from "./components/Databases/Terminology";
 import Normalisation from "./components/Databases/Normalisation";
+import SQLPlayground from "./components/Databases/SQLPlayground";
+import { SQLJsProvider } from "./components/Databases/SQLJsContext";
 
 // Networks
 import Networks from "./components/Networks/Networks";
@@ -171,6 +173,14 @@ export const ROUTES: RouteObject[] = [
           {
             path: "terminology",
             element: <Terminology />,
+          },
+          {
+            path: "playground",
+            element: (
+              <SQLJsProvider>
+                <SQLPlayground />
+              </SQLJsProvider>
+            ),
           },
         ],
       },
