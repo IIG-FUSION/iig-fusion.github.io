@@ -1,5 +1,5 @@
 import React from "react";
-import { Database } from "sql.js";
+import { type Database, type QueryExecResult } from "sql.js";
 import { useSQLJs } from "./SQLJsContext";
 
 const SQL_CREATE_DB = `
@@ -23,7 +23,8 @@ function SqlPlayground() {
   const SQL = useSQLJs();
   const [db, setDb] = React.useState<Database | null>(null);
   const [sql, setSql] = React.useState(SQL_DEFAULT_QUERY);
-  const [results, setResults] = React.useState<any[]>([]);
+  const [results, setResults] = React.useState<QueryExecResult[]>([]);
+  const [error, setError] = React.useState<string | null>(null);
 
   React.useEffect(() => {
     if (!SQL) return;
@@ -46,18 +47,14 @@ function SqlPlayground() {
       const result = db.exec(sql);
       setResults(result);
     } catch (err) {
-      console.error(err);
-      setResults([
-        {
-          error: String(err),
-        },
-      ]);
+      setError(String(err));
     }
   }
 
   return (
     <div>
       <h1>SQL Playground</h1>
+      {error && <p style={{ color: "red" }}>{error}</p>}
 
       <textarea
         rows={8}
