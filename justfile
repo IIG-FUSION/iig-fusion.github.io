@@ -10,8 +10,10 @@ dependencies: install prepare-wasm
 run: dependencies
     npm run dev --prefix iig-fusion
 
-ci:
+ci-install:
     npm ci --prefix iig-fusion
+
+ci: ci-install dependencies
 
 build-site:
     npm run build --prefix iig-fusion
