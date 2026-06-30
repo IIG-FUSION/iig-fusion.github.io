@@ -20,7 +20,7 @@ async function getSqlJs() {
   if (SQL) return SQL;
 
   SQL = await initSqlJs({
-    locateFile: (file) => `/node_modules/sql.js/dist/${file}`,
+    locateFile: (file) => `${import.meta.env.BASE_URL}sql-wasm/${file}`,
   });
 
   return SQL;

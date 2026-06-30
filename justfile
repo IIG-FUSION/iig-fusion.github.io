@@ -1,19 +1,24 @@
 # Run the development server for the website
 install:
-  npm install --prefix iig-fusion
+    npm install --prefix iig-fusion
 
-run: install
-  npm run dev --prefix iig-fusion
+prepare-wasm:
+    cp -R iig-fusion/node_modules/sql.js/dist iig-fusion/public/sql-wasm
+
+dependencies: install prepare-wasm
+
+run: dependencies
+    npm run dev --prefix iig-fusion
 
 ci:
-  npm ci --prefix iig-fusion
+    npm ci --prefix iig-fusion
 
 build-site:
-  npm run build --prefix iig-fusion
+    npm run build --prefix iig-fusion
 
-build: install build-site
+build: dependencies build-site
 
 build-ci: ci build-site
 
 work:
-  echo "Calm down!"
+    echo "Calm down!"
