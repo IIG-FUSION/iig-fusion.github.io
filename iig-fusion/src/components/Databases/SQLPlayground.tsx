@@ -24,6 +24,7 @@ function SqlPlayground() {
   const [db, setDb] = React.useState<Database | null>(null);
   const [sql, setSql] = React.useState(SQL_DEFAULT_QUERY);
   const [results, setResults] = React.useState<QueryExecResult[]>([]);
+  const [selectedFile, setSelectedFile] = React.useState<File | null>(null);
   const [error, setError] = React.useState<string | null>(null);
 
   React.useEffect(() => {
@@ -40,6 +41,27 @@ function SqlPlayground() {
     loadDb();
   }, [SQL]);
 
+  async function exportDatabase() {
+    const bytes = db.export();
+
+    const handle = await window.showSaveFilePicker({
+      suggestedName: "database.sqlite",
+      types: [
+        {
+          description: "SQLite Database",
+          accept: {
+            "application/x-sqlite3": [".sqlite", ".db"],
+          },
+        },
+      ],
+    });
+
+    const writable = await handle.createWritable();
+
+    await writable.write(bytes);
+    await writable.close();
+  }
+
   function runQuery() {
     if (!db) return;
 
@@ -49,6 +71,27 @@ function SqlPlayground() {
     } catch (err) {
       setError(String(err));
     }
+  }
+
+  function importDatabase() {
+    if (!selectedFile) return;
+
+    const file = selectedFile;
+
+    const reader = new FileReader();
+    reader.onload = () => {
+      const data = new Uint8Array(reader.result as ArrayBuffer);
+      const db = new SQL.Database(data);
+      setDb(db);
+    };
+    reader.readAsArrayBuffer(file);
+  }
+
+  function onChooseImport(event: React.ChangeEvent<HTMLInputElement>) {
+    const file = event.target.files?.[0];
+    if (!file) return;
+
+    setSelectedFile(file);
   }
 
   return (
@@ -63,9 +106,13 @@ function SqlPlayground() {
         onChange={(e) => setSql(e.target.value)}
       />
 
+      <input type="file" accept=".sqlite,.db" onChange={onChooseImport} />
+
       <br />
 
       <button onClick={runQuery}>Run Query</button>
+      <button onClick={importDatabase}>Import Database</button>
+      <button onClick={exportDatabase}>Export Database</button>
 
       <table>
         <thead>
