@@ -19,6 +19,10 @@ const SQL_CREATE_DB = `
 
 const SQL_DEFAULT_QUERY = "SELECT * FROM Students;";
 
+const win = window as Window & {
+  showSaveFilePicker?: (options?: unknown) => Promise<FileSystemFileHandle>;
+};
+
 function SqlPlayground() {
   const SQL = useSQLJs();
   const [db, setDb] = React.useState<Database | null>(null);
@@ -42,9 +46,11 @@ function SqlPlayground() {
   }, [SQL]);
 
   async function exportDatabase() {
-    const bytes = db.export();
+    if (!db) return;
 
-    const handle = await window.showSaveFilePicker({
+    const bytes = new Uint8Array(db.export());
+
+    const handle = await win.showSaveFilePicker?.({
       suggestedName: "database.sqlite",
       types: [
         {
@@ -55,6 +61,8 @@ function SqlPlayground() {
         },
       ],
     });
+
+    if (!handle) return;
 
     const writable = await handle.createWritable();
 
